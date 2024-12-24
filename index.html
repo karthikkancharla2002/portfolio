@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Kancharla Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+.skill-logo {
+    width: 23px; /* Smaller size */
+    height: auto;
+    display: inline-block;
+    filter: brightness(0) saturate(100%) invert(48%) sepia(11%) saturate(426%) hue-rotate(177deg) brightness(89%) contrast(86%);
+    transition: transform 0.2s ease;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    vertical-align: middle; /* Ensures proper alignment with text */
+}
+
+.skill-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Add some gap between heading and icons */
+h3 {
+    margin-bottom: 30px; 
+}
+
+/* Adjust grid layout for better alignment */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Makes it responsive */
+    gap: 1rem; /* Reduces spacing between icons */
+    justify-items: center; /* Centers the items */
+    align-items: center; /* Vertically aligns icons */
+    padding-left: 25px; /* Moves everything to the right */
+}
+
+/* Styling for the Certifications section */
+/* Clean certifications list without card styling */
+.certifications-list {
+    list-style-type: none; /* Remove default list style */
+    padding-left: 0; /* Remove left padding */
+    margin-top: 16px; /* Add margin at the top */
+    color: #4A5568; /* Text color */
+    padding-left: 25px;
+}
+
+.certifications-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* Adds spacing between each certification */
+    font-size: 1.1rem; /* Slightly larger font */
+    transition: transform 0.3s ease, color 0.3s ease; /* Hover effects */
+}
+
+.certifications-list li:hover {
+    transform: translateX(8px); /* Move the item slightly to the right on hover */
+    color: #2B6CB0; /* Change text color on hover */
+}
+
+/* Add icons to certifications */
+.certifications-list li i {
+    margin-right: 8px; /* Add spacing between the icon and text */
+    color: #E53E3E; /* Icon color */
+    font-size: 1.2rem; /* Icon size */
+}
+
+/* Remove card-style container */
+.certifications-container {
+    margin-top: 16px; /* Added spacing for better separation */
+}
+
+/* Heading styling */
+h3.certifications-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2D3748;
+    margin-bottom: 16px; 
+}
+
+        ul {
+            list-style-position: outside;  
+        }
+
+        
+
+
+
+
+        html, body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+    
+        /* Responsive container */
+        .content-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+    
+        @media (min-width: 768px) {
+            .content-container {
+                padding: 0 2rem;
+            }
+        }
+    
+        /* Section styles */
+        .section {
+            /* min-height: 100vh; */
+            padding: 6rem 1rem 4rem 1rem;
+            opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+    .section {
+        min-height: 100vh; /* Apply only for desktop (768px and above) */
+    }
+}
+    
+        @media (max-width: 768px) {
+            .section {
+                padding: 5rem 1rem 3rem 1rem;
+                
+            }
+        }
+    
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            /* padding-left: 1.5rem; */
+        }
+    
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #3B82F6 0%, #60A5FA 100%);
+        }
+    
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+    
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #3B82F6;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px #3B82F6;
+            transition: all 0.3s ease;
+        }
+    
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            background: #2563EB;
+        }
+    
+        /* Card animations */
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    
+        .card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile-specific timeline adjustments */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 0;
+        margin-left: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -1.25rem;
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+    
+    /* Adjust card spacing and padding */
+    .card {
+        padding: 1rem;
+        margin-left: 0.5rem;
+    }
+    
+    /* Improve text readability */
+    .timeline-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-item p {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-item ul {
+        /* padding-left: 1rem; */
+        list-style-position: outside;
+    }
+    
+    .timeline-item li {
+        margin-bottom: 0.5rem;
+    }
+
+    
+}
+
+
+
+    
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+    
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3B82F6;
+            transition: width 0.3s ease;
+        }
+    
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    
+        .nav-link.active {
+            background: linear-gradient(to right, #3B82F6, #60A5FA);
+            color: white;
+        }
+
+
+        
+
+
+
+
+
+
+
+    
+        /* Mobile Navigation Styles */
+        #mobile-nav {
+        display: none; /* Hide by default */
+    }
+
+    @media (max-width: 767px) {
+        #mobile-nav {
+            display: flex; /* Show only on mobile */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            /* background-color: rgb(31, 41, 55); */
+            padding: 1rem;
+            z-index: 50;
+            /* justify-content: space-between; */
+            justify-content: flex-end;
+            align-items: center;
+            background: transparent;
+        }
+    }
+
+    .mobile-menu-container {
+        display: none; /* Hide by default */
+    }
+
+    @media (max-width: 767px) {
+        .mobile-menu-container {
+            display: block; /* Show only on mobile */
+            position: fixed;
+            /* top: 64px; */
+            right: 0;
+            width: 260px;
+            /* height: calc(100vh - 64px); */
+            background-color: rgb(31, 41, 55);
+            z-index: 40;
+            padding: 1rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+        }
+
+        main {
+            padding-top: 64px;
+        }
+        
+        .section {
+            padding-top: 2rem;
+        }
+    }
+
+    .mobile-menu-container .nav-link {
+    color: white; /* Set text color to white */
+}
+
+
+    .mobile-menu-container.active {
+        transform: translateX(0);
+    }
+    
+        /* Skill badges */
+        .skill-badge {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            color: white;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+    
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 1rem;
+            }
+    
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+    
+            .card {
+                padding: 1rem;
+            }
+        }
+    
+        /* Loading animation */
+        .loading-animation {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+    
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #3B82F6, #60A5FA);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+            z-index: 1000;
+        }
+
+
+
+        
+        
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+
+        <!-- Left Navbar -->
+        <nav class="bg-gray-800 text-white w-64 hidden md:flex flex-col p-4">
+            <!-- <div class="flex items-center justify-center mb-8">
+                <span class="text-2xl font-bold">Karthik Kancharla</span>
+            </div> -->
+             <ul class="space-y-2">
+                    <li><a href="#about" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="about">
+                        <i class="fas fa-user mr-2"></i>About Me</a></li>
+                    <li><a href="#education" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="education">
+                        <i class="fas fa-graduation-cap mr-2"></i>Education</a></li>
+                    <li><a href="#work-experience" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="work-experience">
+                        <i class="fas fa-briefcase mr-2"></i>Work Experience</a></li>
+                    <li><a href="#projects" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="projects">
+                        <i class="fas fa-laptop-code mr-2"></i>Projects</a></li>
+                    <li><a href="#skills" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="skills">
+                        <i class="fas fa-tools mr-2"></i>Skills & Certifications</a></li>
+                    <li><a href="#awards" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="awards">
+                        <i class="fas fa-trophy mr-2"></i>Awards</a></li>
+                </ul>
+              <div class="mt-auto text-gray-400">
+                    <div class="text-center">
+                        <p class="text-sm ">karthikkancharla501@gmail.com</p>
+                         <!-- <p class="text-sm">+1 (213)-619-5029</p> -->
+                    </div>
+                       <div class="flex justify-center space-x-4 mt-4">
+                        <a href="mailto:karthikkancharla501@gmail.com" class="hover:text-gray-200">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                            <a href="https://github.com/karthikkancharla2002" class="hover:text-gray-200"> <i class="fab fa-github fa-lg"></i></a>
+                            <a href="https://linkedin.com/in/karthik-kancharla" class="hover:text-gray-200"><i class="fab fa-linkedin fa-lg"></i></a>
+                        </div>
+                </div>
+        </nav>
+
+         <!-- Mobile Navigation Header-->
+         <div id="mobile-nav" class="md:hidden">
+            <!-- <div class="flex items-center">
+                <span class="text-white text-xl font-bold">Karthik Kancharla</span>
+            </div> -->
+            <button id="mobile-menu-button" class="text-white p-2 focus:outline-none" style=" color: rgb(31, 41, 55); ">
+                <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                </svg>
+                <!-- <p>hello</p> -->
+            </button>
+        </div>
+       <!-- Mobile Menu Container -->
+        <div id="mobile-menu-container" class="mobile-menu-container md:hidden hidden flex flex-col h-full">
+            <div>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="about">
+                       <i class="fas fa-user mr-2"></i>About Me</a></li>
+                   <li><a href="#education" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="education">
+                       <i class="fas fa-graduation-cap mr-2"></i>Education</a></li>
+                   <li><a href="#work-experience" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="work-experience">
+                       <i class="fas fa-briefcase mr-2"></i>Work Experience</a></li>
+                   <li><a href="#projects" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="projects">
+                       <i class="fas fa-laptop-code mr-2"></i>Projects</a></li>
+                   <li><a href="#skills" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="skills">
+                       <i class="fas fa-tools mr-2"></i>Skills & Certifications</a></li>
+                   <li><a href="#awards" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="awards">
+                       <i class="fas fa-trophy mr-2"></i>Awards</a></li>
+               </ul>
+            </div>
+        
+                 <!-- <div class="mt-auto text-gray-400">
+                         <div class="text-center">
+                            <p class="text-sm ">karthikkancharla501@gmail.com</p>
+                        </div>
+                            <div class="flex justify-center space-x-4 mt-4">
+                                <a href="mailto:karthikkancharla501@gmail.com" class="hover:text-gray-200">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </a>
+                                <a href="https://github.com/karthikkancharla2002" class="hover:text-gray-200"> <i class="fab fa-github fa-lg"></i></a>
+                                <a href="https://linkedin.com/in/karthik-kancharla" class="hover:text-gray-200"><i class="fab fa-linkedin fa-lg"></i></a>
+                            </div>
+                    </div> -->
+        </div>
+
+        <!-- Main Content -->
+       <main id="scroll-container" class="flex-1 overflow-y-scroll scroll-smooth relative">
+            <div class="absolute inset-0">
+                <section id="about" class="section active bg-gray-50 p-8">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="flex items-center mb-8 animate__animated animate__fadeInUp" style="padding-bottom: 2.5rem;">
+                            <img src="me.jpeg" alt="Karthik Kancharla" class="w-32 h-32 rounded-full mr-6 object-cover shadow-lg animated-border border-2 border-gray-300">
+                            <!-- <h1 class="text-4xl font-bold text-gray-800">Karthik Kancharla</h1> -->
+                            <h1 class="text-4xl font-bold text-gray-800 text-shadow-sm ">Karthik Kancharla</h1>
+                        </div>
+                      <h2 class="text-3xl font-semibold mb-4 text-gray-800 animate__animated animate__fadeInUp" style="padding-bottom: 5px;">About Me</h2>
+                      <p class="text-gray-700 text-lg leading-relaxed animate__animated animate__fadeInUp">
+                        &emsp;I am a passionate and driven Master's student in Computer Science, dedicated to continuous learning and innovation. With a solid academic foundation and practical experience in software development, data science, machine learning, and AI, I thrive on solving complex problems and turning fresh ideas into impactful solutions. I aim to combine creativity with technical expertise to drive meaningful change in the tech world. As a collaborative team player with strong communication skills, I am always excited to explore new ideas and contribute to groundbreaking projects. Let’s connect and see how we can shape the future of technology together!      </p>
+                        <div class="mt-8">
+                            <a href="https://drive.google.com/file/d/1fUXOhQ-mlrR0Pe3tJlhvAfMK3NIMRBNT/view" class="text-xl font-bold underline hover:text-blue-800 transition duration-200 ease-in-out">
+                                RESUME HERE
+                            </a>
+                        </div>
+
+                        <div class="mt-12 flex items-center space-x-4">
+                            <p class="text-2xl font-semibold text-gray-800"> Contact :&emsp;</p>
+                            <div class="flex space-x-6">
+                                <!-- Email Icon -->
+                                <a href="mailto:karthikkancharla501@gmail.com" class="text-gray-700 hover:text-blue-600 transition duration-200">
+                                    <i class="fas fa-envelope text-2xl"></i>
+                                </a>
+                                <!-- GitHub Icon -->
+                                <a href="https://github.com/karthikkancharla2002" class="text-gray-700 hover:text-blue-600 transition duration-200">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                <!-- LinkedIn Icon -->
+                                <a href="https://www.linkedin.com/in/karthik-kancharla/" class="text-gray-700 hover:text-blue-600 transition duration-200">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        
+
+                    </div>
+                </section>
+                  
+
+            <div class="scroll-progress"></div>
+            
+            <section id="education" class="section bg-white p-8">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-semibold mb-8 loading-animation">Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="card">
+                                <h3 class="text-2xl font-medium text-gray-800">University of Southern California (USC)</h3>
+                                <p class="text-gray-600">Master of Science, Computer Science</p>
+                                <p class="text-blue-600 font-medium">GPA: 3.92/4.00</p>
+                                <p class="text-gray-500">August 2023 - May 2025</p>
+                                <p class="text-gray-500">Los Angeles, CA</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="card">
+                                <h3 class="text-2xl font-medium text-gray-800">Indian Institute of Technology (IIT), Dharwad</h3>
+                                <p class="text-gray-600">Bachelor of Technology, Computer Science and Engineering</p>
+                                <p class="text-blue-600 font-medium text-lg flex items-center">
+                                    <span class="mr-2 text-2xl">🏅</span> 
+                                    <u>Institute Silver Medalist</u>, GPA: 9.54/10
+                                </p>
+                                <p class="text-gray-500">July 2019 - April 2023</p>
+                                <p class="text-gray-500">Karnataka, India</p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </section>
+
+             <section id="work-experience" class="section bg-gray-50 p-8">
+                   <div class="max-w-4xl mx-auto">
+                   <h2 class="text-4xl font-semibold mb-4 text-gray-800 animate__animated animate__fadeInUp">Work Experience</h2>
+                     <div class="timeline">
+                           <div class="timeline-item animate__animated animate__fadeInUp">
+                               <h3 class="text-xl font-semibold text-gray-700">Apple | Intern</h3>
+                               <p class="text-gray-600">San Diego, CA | May 2024 – August 2024</p>
+                               <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside;" >
+                                    <li>Architected and developed a complete extensive, high-complexity framework that revolutionized testing processes.</li>
+                                     <li>Created an entire new module from scratch for one of the most advanced algorithm helping facilitate 5G data transmission.</li>
+                                     <li>Engineered memory and cycle-optimized C,C++ real-time processing code.</li>
+                                    <li>Assisted in software optimization and the enhancement of real-time performance.</li>
+                               </ul>
+                              
+                         </div>
+                         <div class="timeline-item animate__animated animate__fadeInUp">
+                              <h3 class="text-xl font-semibold text-gray-700">Siemens EDA Software Development Engineer Intern (SDE)</h3>
+                                <p class="text-gray-600">Hyderabad, India | August 2022 – April 2023</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside;"> 
+                                    <li>Revamped Migration procedures by altering deletion protocols.</li>
+                                    <li>Resolved interface aberrations making the applications more responsive.</li>
+                                     <li>Worked on Cross-database migration, helping transfer the audit trail and design logs.</li>
+                                </ul>
+                         </div>
+                          <div class="timeline-item animate__animated animate__fadeInUp">
+                                <h3 class="text-xl font-semibold text-gray-700">Needl.ai Machine Learning Intern (ML)</h3>
+                                <p class="text-gray-600">Bangalore, India | May 2022 – July 2022</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside;">
+                                    <li>Created a transformer, the lemmatizer, and collaborated on the stemmer.</li>
+                                    <li>Implemented diverse Text Parsing techniques.</li>
+                                     <li>Written, improved unit tests to rectify Text Detection Anomalies.</li>
+                                </ul>
+                            </div>
+                         <div class="timeline-item animate__animated animate__fadeInUp">
+                               <h3 class="text-xl font-semibold text-gray-700">Xtendlabs Inc. | Deep Learning Intern (DL)</h3>
+                                <p class="text-gray-600">Remote | June 2021 – August 2021</p>
+                                <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside;">
+                                     <li>Orchestrated end-to-end Development of a Deep Learning Model for predicting patient cancer type.</li>
+                                     <li>Employed diverse Image Modification techniques to extract essential features from X-Rays.</li>
+                                    <li>Utilized GPU acceleration and performed thorough data processing for extensive analysis.</li>
+                                </ul>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+              <section id="projects" class="section bg-white p-8">
+                 <div class="max-w-4xl mx-auto">
+                 <h2 class="text-4xl font-semibold mb-4 text-gray-800 animate__animated animate__fadeInUp">Projects</h2>
+                 <div class="mb-8 animate__animated animate__fadeInUp">
+                        <h3 class="text-2xl font-medium text-gray-700">Generative AI for Engagement Optimization</h3>
+                        <p class="text-gray-600">[Google T5, BERT, NLP, OCR]</p>
+                         <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside; padding-left: 20px; ">
+                             <li>Leveraged the Google T5 text generation model with soft prompting techniques and BERT classifiers to produce engagement-optimized
+                                social media content, aligning posts with specific goals (informational, interactional, transformational) to boost user interactions.
+                            </li>
+                            <li>Built an automated data pipeline for content gathering and preprocessing, enabling models to generate contextually relevant, high-impact
+                                 posts tailored for maximum engagement.
+                            </li>
+
+                         </ul>
+                 <br>        
+                 <hr>
+
+                 </div>
+                 <div class="mb-8 animate__animated animate__fadeInUp">
+                        <h3 class="text-2xl font-medium text-gray-700">Stock Portfolio iOS App, Angular Platform</h3>
+                       <p class="text-gray-600">[SwiftUI, AngularJS, NodeJS, MongoDB, RESTful APIs, Google Cloud]</p>
+                           <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside; padding-left: 20px; ">
+                            <li>Developed an iOS app using SwiftUI and a responsive AngularJS website providing a comprehensive platform to buy/sell stocks, monitor
+                                portfolios, and practice trading with real-time updates and search ability with live data.
+                            </li>
+                            <li>Implemented a scalable NodeJS backend hosted on Google Cloud, enabling global access with multiple RESTful APIs supporting advanced
+                                 search functionality, autocomplete, and real-time stock data processing.
+                            </li>
+                         </ul>
+                         <br>        
+                 <hr>
+                </div>
+                <div class="mb-8 animate__animated animate__fadeInUp">
+                        <h3 class="text-2xl font-medium text-gray-700">Research on Performance of Deep Learning Models</h3>
+                        <p class="text-gray-600">[Tensorflow, Image Detection, Data Processing]</p>
+                            <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside; padding-left: 20px; ">
+                                 <li>Analyzed TensorFlow models for optimal transfer learning with Intel VINO toolkit on images with diverse characteristics with a goal to
+                                    minimize the use of cloud infrastructure by performing on-device classification.
+                                </li>
+                                <li>Achieved an 8% accuracy boost over cutting-edge models, such as RESNET-50 using the ImageNet dataset, by curating an 8,000-image
+                                    dataset focused on corn diseases. This enhancement in mobile image detection benefits farmers/users with low-end devices.
+                                 </li>
+                            </ul>
+                            <br>        
+                 <hr>
+                 </div>
+                <div class="mb-8 animate__animated animate__fadeInUp">
+                        <h3 class="text-2xl font-medium text-gray-700">ISRO's Web Based Visualization Tool for AstroSAT</h3>
+                        <p class="text-gray-600">[Python, Tkinter, Data Visualization]</p>
+                         <ul class="list-disc list-inside mt-2 text-gray-700"  style="list-style-position: outside; padding-left: 20px; ">
+                             <li>Built a Web-based visualization tool for "ISRO" (Indian Space Research Organization); a stand-alone application with a 3D Visualizer that
+                                    helps visualize and identify different cosmic sources present in the universe.
+                             </li>
+                             <li>Led a team of 6 and Won Bronze Medal in "Inter IIT Tech Meet", where all 23 IIT's present in India compete to solve significant
+                                  industrial problems faced by the top organizations and improve their products.
+                             </li>
+                        </ul>
+                        <br>        
+                 <hr>
+                </div>
+               </div>
+            </section>
+
+            <section id="skills" class="section bg-gray-50 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-semibold mb-6 text-gray-800 animate__animated animate__fadeInUp">
+            Skills and Certifications
+        </h2>
+
+        <!-- Programming Languages -->
+        <div class="mb-6 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-medium text-gray-700 flex items-center">
+                <i class="fas fa-code mr-2 text-blue-500"></i>Programming Languages
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                <!-- Programming Language Items -->
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/python.svg" alt="Python" class="skill-logo">
+                    <span>Python</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/c.svg" alt="C" class="skill-logo">
+                    <span>C</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/cplusplus.svg" alt="C++" class="skill-logo">
+                    <span>C++</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/java.svg" alt="Java" class="skill-logo">
+                    <span>Java</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/javascript.svg" alt="JavaScript" class="skill-logo">
+                    <span>JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/swift.svg" alt="Swift" class="skill-logo">
+                    <span>Swift</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/php.svg" alt="PHP" class="skill-logo">
+                    <span>PHP</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/typescript.svg" alt="TypeScript" class="skill-logo">
+                    <span>TypeScript</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/sqlite.svg" alt="SQL" class="skill-logo">
+                    <span>SQL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="mb-6 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-medium text-gray-700 flex items-center">
+                <i class="fas fa-layer-group mr-2 text-green-500"></i>Frameworks
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                <!-- Framework Items -->
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/react.svg" alt="ReactJS" class="skill-logo">
+                    <span>ReactJS</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/angular.svg" alt="AngularJS" class="skill-logo">
+                    <span>AngularJS</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/django.svg" alt="Django" class="skill-logo">
+                    <span>Django</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/tensorflow.svg" alt="TensorFlow" class="skill-logo">
+                    <span>TensorFlow</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/pytorch.svg" alt="PyTorch" class="skill-logo">
+                    <span>PyTorch</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/numpy.svg" alt="NumPy" class="skill-logo">
+                    <span>NumPy</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/pandas.svg" alt="Pandas" class="skill-logo">
+                    <span>Pandas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="mb-6 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-medium text-gray-700 flex items-center">
+                <i class="fas fa-tools mr-2 text-yellow-500"></i>Tools
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+                <!-- Tool Items -->
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/git.svg" alt="GIT" class="skill-logo">
+                    <span>GIT</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo">
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linux.svg" alt="Linux" class="skill-logo">
+                    <span>Linux</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/latex.svg" alt="LATEX" class="skill-logo">
+                    <span>LATEX</span>
+                </div>
+                <div class="flex flex-col items-center space-y-2">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/jenkins.svg" alt="Jenkins" class="skill-logo">
+                    <span>Jenkins</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="mb-6 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-medium text-gray-700 flex items-center">
+                <i class="fas fa-certificate mr-2 text-purple-500"></i>Certifications
+            </h3>
+            <ul class="certifications-list list-disc pl-6 mt-4 text-gray-600">
+                <li><i class="fas fa-trophy text-blue-500 mr-2"></i> Google Cloud Ready Facilitator</li>
+                <li><i class="fas fa-certificate text-green-500 mr-2"></i> Neural Networks and Deep Learning</li>
+                <li><i class="fas fa-medal text-yellow-500 mr-2"></i> Data Structures and Algorithms</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+            
+            
+
+            <section id="awards" class="section bg-white p-8">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-semibold text-gray-800 mb-6 animate__animated animate__fadeInUp">Awards and Extra Curriculars</h2>
+                    
+                    <div class="space-y-4 text-lg text-gray-700">
+                         <div class="flex items-start space-x-4 animate__animated animate__fadeInUp">
+                              <i class="fas fa-trophy text-yellow-500 text-xl flex-shrink-0"></i>
+                              <span class="block">Secured 7th rank in India in AMTI Olympiad examination.</span>
+                          </div>
+                          <div class="flex items-start space-x-4 animate__animated animate__fadeInUp animate__delay-0.2s">
+                              <i class="fas fa-trophy text-yellow-500 text-xl flex-shrink-0"></i>
+                              <span class="block">Secured 406 rank (Top 0.2%) out of around 200,000 people in the B.Arch exam all over India.</span>
+                           </div>
+                          <div class="flex items-start space-x-4 animate__animated animate__fadeInUp animate__delay-0.4s">
+                             <i class="fas fa-trophy text-yellow-500 text-xl flex-shrink-0"></i>
+                             <span class="block">Stood in top 1% in International and National Olympiads such as RMO, IAPT & Dr AS Rao.</span>
+                           </div>
+                           <div class="flex items-start space-x-4 animate__animated animate__fadeInUp animate__delay-0.6s">
+                                <i class="fas fa-trophy text-yellow-500 text-xl flex-shrink-0"></i>
+                               <span class="block">Secured First place in "Artine" Sketching competition, and won a Gold Medal in IIT Hockey Tournament.</span>
+                           </div>
+                           <div class="flex items-start space-x-4 animate__animated animate__fadeInUp animate__delay-0.8s">
+                                <i class="fas fa-trophy text-yellow-500 text-xl flex-shrink-0"></i>
+                                <span class="block">Mentored 30 students as part of the Department Academic Mentorship Program at IIT Dharwad.</span>
+                          </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            
+            </div>
+        </main>
+
+    </div>
+    <script>
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items and cards
+        document.querySelectorAll('.timeline-item, .card, .loading-animation').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Scroll progress indicator
+        const scrollProgress = document.querySelector('.scroll-progress');
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+        });
+
+
+
+
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuContainer = document.getElementById('mobile-menu-container');
+        const mobileNav = document.getElementById('mobile-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+        const scrollContainer = document.getElementById('scroll-container');
+    
+        // Improved scroll spy function
+        function updateActiveSection() {
+            const scrollPosition = scrollContainer.scrollTop;
+            const windowHeight = window.innerHeight;
+    
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.id;
+    
+                // Calculate if section is in viewport
+                if (scrollPosition >= sectionTop - windowHeight/3 && 
+                    scrollPosition < sectionTop + sectionHeight - windowHeight/3) {
+                    // Update nav links
+                    navLinks.forEach(link => {
+                        if (link.getAttribute('data-section') === sectionId) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+    
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                scrollContainer.scrollTo({
+                    top: section.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+            if (mobileMenuContainer) {
+                mobileMenuContainer.classList.remove('active');
+            }
+        }
+    
+        // Event listeners
+        scrollContainer.addEventListener('scroll', updateActiveSection);
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                scrollToSection(sectionId);
+            });
+        });
+    
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuContainer.classList.toggle('active');
+        });
+    
+        // Initialize active section on page load
+        updateActiveSection();
+    
+        // Handle resize
+        function handleResize() {
+            if (window.innerWidth >= 768) {
+                mobileNav.classList.add('hidden');
+                mobileMenuContainer.classList.remove('active');
+            } else {
+                mobileNav.classList.remove('hidden');
+            }
+        }
+    
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+</body>
+</html>
