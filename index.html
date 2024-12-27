@@ -305,13 +305,13 @@
             }
         }
 
-    .mobile-menu-container .nav-link {
-        color: white;
-    }
+        .mobile-menu-container .nav-link {
+            color: white;
+        }
 
-    .mobile-menu-container.active {
-        transform: translateX(0);
-    }
+        .mobile-menu-container.active {
+            transform: translateX(0);
+        }
 
         .skill-badge {
             background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
@@ -401,6 +401,20 @@
             transition: transform 0.3s ease-in-out;
         }
 
+        #nav-header {
+        position: relative;
+        top: 1rem;
+        /* left: 0.5rem; */
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        #nav-links {
+            transform: translateY(-6rem);
+            transition: transform 0.5s ease-in-out;
+            margin-top: 1rem;
+        }
+
+
     </style>
 </head>
 <body class="bg-gray-100">
@@ -408,7 +422,15 @@
 
         <!-- Left Navbar -->
         <nav class="bg-gray-800 text-white w-64 hidden md:flex flex-col p-4">
-             <ul class="space-y-2">
+            <div id="nav-header" class="transform -translate-y-full opacity-0 transition-all duration-500 ease-in-out mb-6">
+                <div class="flex items-center space-x-4 mb-4 ml-2 pb-2"> <!-- Added pb-1 here -->
+                    <img src="me.jpeg" alt="Karthik Kancharla" class="w-12 h-12 rounded-full object-cover">
+                    <span class="text-lg font-semibold text-white">Karthik Kancharla</span>
+                </div>
+                <div style="background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); height: 1px; margin-top: 1rem; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);"></div>
+            </div>
+            
+            <ul  id="nav-links" class="space-y-2 transition-all duration-500 ease-in-out">
                     <li><a href="#about" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="about">
                         <i class="fas fa-user mr-2"></i>About Me</a></li>
                     <li><a href="#education" class="nav-link block py-2 px-4 hover:bg-gray-700 rounded-2xl" data-section="education">
@@ -616,6 +638,43 @@
                          <br>
                  <hr>
                 </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-medium text-gray-700 fade-in-up">Fine-Tuning Image Generation Models for Text Rendering</h3>
+                    <p class="text-gray-600 fade-in-up">[DeepFloyd IF, Stable Diffusion 3.5, LORA Fine-Tuning]</p>
+                   <ul class="list-disc list-inside mt-2 text-gray-700" style="list-style-position: outside; padding-left: 20px;">
+                        <li class="fade-in-up">Optimized Text Fidelity in Generative Models by Fine-tuning DeepFloyd IF-I-M v1.0 using Low-Rank Adaptation (LoRA) on attention parameters (e.g., to_q, to_k, to_v) to improve OCR-based metrics such as Exact Match Accuracy and Levenshtein Distance by focusing on text rendering within multimodal image generation tasks and also CLIP score ensuring contexual relevance.</li>
+                        <li class="fade-in-up">Leveraged LAION-400M dataset, applying advanced OCR techniques with EasyOCR and parallel processing (ThreadPoolExecutor) to preprocess 10,000+ text-embedded images, ensuring high semantic relevance through cosine similarity analysis.</li>
+                    </ul>
+                        <br>
+                        <hr>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-medium text-gray-700 fade-in-up">Transformative Named Entity Recognition Using LSTM and GloVe</h3>
+                     <p class="text-gray-600 fade-in-up">[Natural Language Processing, Semantic Analysis]</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-700" style="list-style-position: outside; padding-left: 20px;">
+                      <li class="fade-in-up">Spearheaded the development of an avant-garde bidirectional LSTM network for NER, leveraging the depth of the CoNLL-2003 corpus to push the boundaries of entity recognition in natural language processing.</li>
+                      <li class="fade-in-up">Strategically enhanced the network with GloVe word embeddings to navigate the intricacies of case sensitivity, further elevating the model's acuity by embedding CNN modules for capturing nuanced character-level semantics.</li>
+                     </ul>
+                         <br>
+                        <hr>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-2xl font-medium text-gray-700 fade-in-up">Advanced POS Tagging with Hidden Markov Model</h3>
+                    <p class="text-gray-600 fade-in-up">[PyTorch, Probabilistic Modeling, Statistical Analysis, NLP]</p>
+                   <ul class="list-disc list-inside mt-2 text-gray-700" style="list-style-position: outside; padding-left: 20px;">
+                     <li class="fade-in-up">Architected a state-of-the-art Hidden Markov Model to tackle POS tagging, exploiting the Penn Treebank's Wall Street Journal corpus.
+                        Innovatively addressed rare word dilemmas to bolster model resilience and accuracy.</li>
+                     <li class="fade-in-up">Enhanced linguistic predictive capabilities by masterfully calculating transition and emission probabilities with probabilistic models,
+                       and validated the model's accuracy and efficacy against developmental datasets for decoding complex structures.</li>
+                   </ul>
+                        <br>
+                       <hr>
+               </div>
+
+
                 <div class="mb-8">
                         <h3 class="text-2xl font-medium text-gray-700 fade-in-up">Research on Performance of Deep Learning Models</h3>
                         <p class="text-gray-600 fade-in-up">[Tensorflow, Image Detection, Data Processing]</p>
@@ -927,6 +986,23 @@
 
         window.addEventListener('resize', handleResize);
         handleResize();
+
+        const navHeader = document.getElementById('nav-header');
+        const navLinks2 = document.getElementById('nav-links');
+        const aboutSection = document.getElementById('about');
+
+        scrollContainer.addEventListener('scroll', () => {
+            const aboutBottom = aboutSection.getBoundingClientRect().bottom;
+            if (aboutBottom <= 0) {
+                navHeader.style.transform = 'translateY(0)';
+                navHeader.style.opacity = '1';
+                navLinks2.style.transform = 'translateY(0)';
+            } else {
+                navHeader.style.transform = 'translateY(-100%)';
+                navHeader.style.opacity = '0';
+                navLinks2.style.transform = 'translateY(-6rem)';
+            }
+        });
     </script>
 </body>
 </html>
