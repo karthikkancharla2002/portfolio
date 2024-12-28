@@ -1046,19 +1046,22 @@
         const navHeader = document.getElementById('nav-header');
         const navLinks2 = document.getElementById('nav-links');
         const aboutSection = document.getElementById('about');
-
+    
         scrollContainer.addEventListener('scroll', () => {
-            const aboutBottom = aboutSection.getBoundingClientRect().bottom;
-            if (aboutBottom <= 0) {
-                navHeader.style.transform = 'translateY(0)';
-                navHeader.style.opacity = '1';
+          const aboutRect = aboutSection.getBoundingClientRect();
+          const aboutHalfway = aboutRect.top + (aboutRect.height / 3);
+          const viewportTop = 0; 
+    
+           if (aboutHalfway <= viewportTop) { 
+               navHeader.style.transform = 'translateY(0)';
+               navHeader.style.opacity = '1';
                 navLinks2.style.transform = 'translateY(0)';
             } else {
                 navHeader.style.transform = 'translateY(-100%)';
-                navHeader.style.opacity = '0';
-                navLinks2.style.transform = 'translateY(-6rem)';
-            }
-        });
+               navHeader.style.opacity = '0';
+               navLinks2.style.transform = 'translateY(-6rem)';
+           }
+       });
     </script>
 </body>
 </html>
