@@ -271,7 +271,7 @@
                 left: 0;
                 right: 0;
                 padding: 1rem;
-                z-index: 50;
+                z-index: 10;
                 justify-content: flex-end;
                 align-items: center;
                 background: transparent;
@@ -1062,6 +1062,16 @@
                navLinks2.style.transform = 'translateY(-6rem)';
            }
        });
+
+        document.addEventListener('click', (event) => {
+    if (mobileMenuContainer.classList.contains('active')) {
+        const isClickInsideMenu = mobileMenuContainer.contains(event.target);
+        const isClickOnButton = mobileMenuButton.contains(event.target);
+        if (!isClickInsideMenu && !isClickOnButton) {
+            mobileMenuContainer.classList.remove('active');
+        }
+    }
+});
     </script>
 </body>
 </html>
